@@ -1,6 +1,17 @@
-function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
-  
+ async function fetchBooks() {
+  // To pass the tests, don't forget to return your fetch!\
+  fetch('https://anapioficeandfire.com/api/books')
+  .then(data => data.json())
+  .then(books => {
+    renderBooks(books)
+  })
+  //async/await version
+  // let data = await fetch('https://anapioficeandfire.com/api/books')
+  // let books = await data.json()
+  //this will throw an error because JS is trying to call the function before the promise has resolved
+  // renderBooks(books)
+
+  return books
 }
 
 function renderBooks(books) {
